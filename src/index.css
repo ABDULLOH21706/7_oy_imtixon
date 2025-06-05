@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a1a; /* Dark background */
+  color: #e0e0e0; /* Light text */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+
+
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Viewport balandligini to'ldirish */
+  overflow: hidden; /* Kontent tashqariga chiqmasligi uchun */
+}
+
+.main-content {
+  flex-grow: 1; /* Qolgan joyni egallaydi */
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Agar kerak bo'lsa, ichki skroll */
+}
+
+.page-content {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #e0e0e0;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: #3a3a3a;
+}
+
+.sidebar a.active {
+  background-color: #007bff; /* Active color */
+  color: #fff;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* Header Styling */
+.header {
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-info .user-icon {
+  font-size: 2em;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.header .user-info .settings-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.header .username {
+  font-weight: bold;
+}
+
+.header .role {
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+/* Managers Page Styling */
+.managers-page {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+.admins-page {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+.teachers-page {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+.breadcrumb {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.breadcrumb span {
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.managers-page h2 {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.managers-table-container {
+    overflow-x: auto; /* Agar jadval keng bo'lsa gorizontal skroll */
+}
+
+.managers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a2a;
+}
+
+.managers-table th,
+.managers-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #3c3c3c;
+  color: #e0e0e0;
+}
+
+.managers-table th {
+  background-color: #3a3a3a;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.managers-table tbody tr:hover {
+  background-color: #353535;
+}
+
+.managers-table .actions-cell {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loading-message, .error-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.error-message {
+    color: #dc3545;
+}
+
+.logout-link {
+  margin-top: auto; /* Pastga suradi */
+}
+
+
+
+
+
+.admins-page h2 {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.admins-table-container {
+    overflow-x: auto; /* Agar jadval keng bo'lsa gorizontal skroll */
+}
+
+.admins-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a2a;
+}
+
+.admins-table th,
+.admins-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #3c3c3c;
+  color: #e0e0e0;
+}
+
+.admins-table th {
+  background-color: #3a3a3a;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.admins-table tbody tr:hover {
+  background-color: #353535;
+}
+
+.admins-table .actions-cell {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+.teachers-page h2 {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.teachers-table-container {
+    overflow-x: auto; /* Agar jadval keng bo'lsa gorizontal skroll */
+}
+
+.teachers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a2a;
+}
+
+.teachers-table th,
+.teachers-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #3c3c3c;
+  color: #e0e0e0;
+}
+
+.teachers-table th {
+  background-color: #3a3a3a;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.teachers-table tbody tr:hover {
+  background-color: #353535;
+}
+
+.teachers-table .actions-cell {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+
+
+html {
+  @apply bg-white text-black;
+}
+
+html.dark {
+  @apply bg-neutral-950 text-white;
+}
