@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import cors from "cors";
 
@@ -132,7 +131,6 @@ app.get("/api/staff/all-admins", (req, res) => {
   console.log("📥 GET /api/staff/all-admins");
   res.json(adminsData);
 });
-// 🔽 3. POST: Yangi admin qo‘shish
 app.post("/api/staff/create-admin", (req, res) => {
   const { ism, familiya, email, rol, holat } = req.body;
 
@@ -150,7 +148,6 @@ app.post("/api/staff/create-admin", (req, res) => {
   console.log("🆕 Yangi admin qo‘shildi:", newAdmin);
   res.status(201).json({ message: "Admin qo‘shildi", admin: newAdmin });
 });
-// 🔽 4. PUT: Adminni yangilash
 app.put("/api/staff/all-admins/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = adminsData.findIndex((m) => m.id === id);
@@ -169,7 +166,6 @@ app.put("/api/staff/all-admins/:id", (req, res) => {
   console.log("✏️ Manager yangilandi:", managersData[index]);
   res.json({ updatedAdmin: adminsData[index] });
 });
-// 🔽 5. DELETE: Adminni o‘chirish
 app.delete("/api/staff/all-admins/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = adminsData.findIndex((a) => a.id === id);
@@ -236,12 +232,10 @@ let teachersData = [
     holat: "ishdan bo'shatilgan",
   },
 ];
-// GET: Barcha ustozlarni olish
 app.get("/api/teacher/all-teacher", (req, res) => {
   console.log("📥 GET /api/teacher/all-teacher");
   res.json(teachersData);
 });
-// POST: Yangi ustoz qo‘shish
 app.post("/api/teacher/create-teacher", (req, res) => {
   const { ism, familiya, email, rol, holat } = req.body;
 
@@ -257,7 +251,6 @@ app.post("/api/teacher/create-teacher", (req, res) => {
   console.log("🆕 Yangi ustoz qo‘shildi:", newTeacher);
   res.status(201).json({ message: "Ustoz qo‘shildi", teacher: newTeacher });
 });
-// PUT: Ustozni tahrirlash
 app.put("/api/teacher/all-teacher/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = teachersData.findIndex((t) => t.id === id);
@@ -276,7 +269,6 @@ app.put("/api/teacher/all-teacher/:id", (req, res) => {
   console.log("✏️ Ustoz yangilandi:", teachersData[index]);
   res.json({ updatedTeacher: teachersData[index] });
 });
-// DELETE: Ustozni o‘chirish
 app.delete("/api/teacher/all-teacher/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = teachersData.findIndex((t) => t.id === id);
@@ -291,8 +283,6 @@ app.delete("/api/teacher/all-teacher/:id", (req, res) => {
 });
 
 
-
-// 🔽 6. Serverni ishga tushirish
 app.listen(PORT, () => {
   console.log(`🚀 Server http://localhost:${PORT} da ishga tushdi`);
 });
