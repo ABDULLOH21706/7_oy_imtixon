@@ -12,7 +12,7 @@ const predefinedUsers: User[] = [
 ];
 
 const LoginCard: React.FC = () => {
-  const navigate = useNavigate(); // useNavigate hookini ishga tushirish
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -35,32 +35,23 @@ const LoginCard: React.FC = () => {
     );
 
     if (foundUser) {
-      // Agar foydalanuvchi topilsa va parol mos kelsa
-      setErrorMessage(''); // Xatoni tozalash
-      setSuccessMessage('Siz tizimga kirdingiz'); // Muvaffaqiyat xabarini o'rnatish
-
-      // Emailni localStorage ga saqlash (YANGI)
+      setErrorMessage('');
+      setSuccessMessage('Siz tizimga kirdingiz');
       localStorage.setItem('loggedInEmail', email);
 
-      // Muvaffaqiyat xabarini ko'rsatish va 2 soniyadan keyin boshqa sahifaga o'tish
       setTimeout(() => {
-        setSuccessMessage(''); // Xabarni yo'q qilish
-        // Navigate orqali foydalanuvchini Dashboard sahifasiga yo'naltirish
-        // Endi state orqali emailni jo'natish shart emas, chunki localStorage da bor
+        setSuccessMessage('');
         navigate('/dashboard');
-        // Input maydonlarini tozalash (agar foydalanuvchi orqaga qaytsa)
         setEmail('');
         setPassword('');
-      }, 2000); // 2000 millisekund = 2 soniya+
+      }, 2000);
     } else {
-      // Agar foydalanuvchi topilmasa yoki parol noto'g'ri bo'lsa
       setErrorMessage('Notoʻgʻri email yoki parol. Iltimos, qayta urinib koʻring.');
     }
   };
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4 relative">
-      {/* Muvaffaqiyat xabari (absolute positioning bilan yuqorida turadi) */}
       {successMessage && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-xl text-lg flex items-center gap-2 z-50 animate-fade-in-down">
           {successMessage} <span className="text-xl">✅</span>

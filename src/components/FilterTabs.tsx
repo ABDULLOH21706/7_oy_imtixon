@@ -1,4 +1,3 @@
-// components/FilterTabs.tsx
 import React from 'react';
 
 interface FilterTabsProps {

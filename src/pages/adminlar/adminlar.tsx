@@ -16,7 +16,7 @@ function AdminlarPage() {
   const [admins, setAdmins] = useState<Admin[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState(''); // <-- Qo‘shildi
+  const [searchTerm, setSearchTerm] = useState('');
 
 
 

@@ -27,9 +27,7 @@ function UstozlarPage() {
         fan: '',
         holat: 'faol',
     };
-
     const [formData, setFormData] = useState(initialFormState);
-
     useEffect(() => {
         const fetchUstozlar = async () => {
             try {

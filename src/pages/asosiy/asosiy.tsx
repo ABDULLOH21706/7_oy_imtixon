@@ -43,7 +43,7 @@ const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   const navigate = useNavigate();
   const MyComponent = () => {
-    const location = useLocation(); // ✅ Hook to‘g‘ri joyda ishlatilgan
+    const location = useLocation();
     return <div>{location.pathname}</div>;
   };
 
